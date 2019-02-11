@@ -1,0 +1,23 @@
+{
+  "name": "spotifyproject",
+  "version": "1.0.0",
+  "description": "- Javascript (Front End)\r - Node (Server)\r - Spotify's Developer API (API)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M-Konvalinka/spotifyapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M-Konvalinka/spotifyapp/issues"
+  },
+  "homepage": "https://github.com/M-Konvalinka/spotifyapp#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0"
+  }
+}
