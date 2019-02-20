@@ -37,7 +37,7 @@ var generateRandomString = function(length) {
 
 var stateKey = 'spotify_auth_state';
 
-var app = express(); // line 37 
+var app = express();
 
 app.use(express.static(__dirname + '/public'))
    .use(cors())
@@ -50,7 +50,7 @@ app.get('/login', function(req, res) {
 
   // The information from spotify that the application is request on Login, this can greatly vary
   // with a few key words 
-  var scope = 'user-read-private user-read-email';
+  var scope = 'user-read-private user-read-email user-top-read';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
@@ -97,13 +97,14 @@ app.get('/callback', function(req, res) {
               refresh_token = body.refresh_token;
   
           var options = {
-            url: 'https://api.spotify.com/v1/me',
+            url: 'https://api.spotify.com/v1/me/top/tracks/?limit=5',
             headers: { 'Authorization': 'Bearer ' + access_token },
             json: true
           };
   
           // use the access token to access the Spotify Web API
           request.get(options, function(error, response, body) {
+            console.log('below is the info you are getting back');
             console.log(body);
           });
   
