@@ -32,20 +32,20 @@
     </div>
 
     <script id="user-profile-template" type="text/x-handlebars-template">
-      <h1>Logged in as {{display_name}}</h1>
+      <h1>Here Are The Top Five Songs You've Listened To:</h1>
       <div class="media">
         <div class="pull-left">
+        
           <img class="media-object" width="150" src="{{images.0.url}}" />
         </div>
         <div class="media-body">
           <dl class="dl-horizontal">
-            <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
-            <dt>Id</dt><dd>{{id}}</dd>
-            <dt>Email</dt><dd>{{email}}</dd>
-            <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
-            <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
-            <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
-            <dt>Country</dt><dd>{{country}}</dd>
+
+            <dt>Song 1:</dt><dd class="clearfix">{{items.0.name}}</dd>
+            <dt>Song 2:</dt><dd>{{items.1.name}}</dd>
+            <dt>Song 3:</dt><dd>{{items.2.name}}</dd>
+            <dt>Song 4:</dt><dd>{{items.3.name}}</dd>
+            <dt>Song 5:</dt><dd>{{items.4.name}}</dd>
           </dl>
         </div>
       </div>
@@ -96,7 +96,7 @@
               refresh_token: refresh_token
             });
             $.ajax({
-                url: 'https://api.spotify.com/v1/me',
+                url: 'https://api.spotify.com/v1/me/top/tracks/?limit=5',
                 headers: {
                   'Authorization': 'Bearer ' + access_token
                 },
